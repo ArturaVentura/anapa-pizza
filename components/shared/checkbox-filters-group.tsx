@@ -62,8 +62,16 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   }
 
   const list = showAll
-    ? items.filter((item) => item.text.toLowerCase().includes(searchValue.toLocaleLowerCase()))
+    ? items.filter((item) => item.text.toLowerCase().includes(searchValue.toLowerCase()))
     : (defaultItems || items).slice(0, limit);
+
+  const handleCheckboxClick = (value: string) => {
+    if (selected?.has(value)) {
+      // Если значение уже выбрано, не вызываем обновление
+      return;
+    }
+    onClickCheckbox?.(value);
+  };
 
   return (
     <div className={className}>
@@ -87,7 +95,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
             value={item.value}
             endAdornment={item.endAdornment}
             checked={selected?.has(item.value)}
-            onCheckedChange={() => onClickCheckbox?.(item.value)}
+            onCheckedChange={() => handleCheckboxClick(item.value)} // Используем новый обработчик
             name={name}
           />
         ))}

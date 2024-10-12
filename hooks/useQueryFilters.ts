@@ -20,7 +20,8 @@ export const useQueryFilters = (filters: Filters) => {
         arrayFormat: 'comma',
       });
 
-      router.push(`?${query}`, {
+
+      router.replace(`?${query}`, {
         scroll: false,
       });
 
@@ -28,5 +29,5 @@ export const useQueryFilters = (filters: Filters) => {
     }
 
     isMounted.current = true;
-  }, [filters]);
+  }, [filters, router]);
 };

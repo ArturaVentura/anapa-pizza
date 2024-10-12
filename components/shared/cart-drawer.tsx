@@ -18,7 +18,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { Title } from './title';
 import { cn } from '@/lib/utils';
-import { useCart } from '@/hooks';
+import { useCart } from '@/hooks'; 
 import { CartDrawerItem } from './cart-drawer-item';
 import { PizzaSize, PizzaType } from '../constants/pizza';
 

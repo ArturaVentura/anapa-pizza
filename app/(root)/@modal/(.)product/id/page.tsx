@@ -1,22 +1,19 @@
-import { Container, ProductForm } from '@/components/shared';
+// product/[id]/page.tsx
+import { ProductWithRelations } from '@/@types/prisma';
+import { ChooseProductModal } from '@/components/shared';
 import { prisma } from '@/prisma/prisma-client';
 import { notFound } from 'next/navigation';
 
-export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
+
+export default async function ProductModalPage({ params: { id } }: { params: { id: string } }) {
   const product = await prisma.product.findFirst({
-    where: { id: Number(id) },
+    where: {
+      id: Number(id),
+    },
     include: {
       ingredients: true,
-      category: {
-        include: {
-          products: {
-            include: {
-              items: true,
-            },
-          },
-        },
-      },
       items: true,
+      category: true, // Добавьте включение категории в запрос
     },
   });
 
@@ -24,9 +21,5 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
     return notFound();
   }
 
-  return (
-    <Container className="flex flex-col my-10">
-      <ProductForm product={product} />
-    </Container>
-  );
+  return <ChooseProductModal product={product as ProductWithRelations} />; // Приведение к типу ProductWithRelations
 }
