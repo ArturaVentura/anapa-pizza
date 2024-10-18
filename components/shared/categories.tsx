@@ -9,7 +9,7 @@ interface CategoriesProps {
   activeIndex?: number; // Дополнительно можно передавать activeIndex, если нужно
 }
 
-const cats = ['Пиццы', 'Комбо', 'Закуски', 'Коктейли', 'Кофе', 'Напитки', 'Десерты', 'Десерты'];
+const cats = ['Пиццы', 'Комбо', 'Закуски', 'Коктейли', 'Кофе', 'Напитки', 'Десерты'];
 const activeIndex = 0;
 
 export const Categories: React.FC<CategoriesProps> = ({ className }) => {

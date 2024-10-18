@@ -5,9 +5,10 @@ import { Dialog } from '@/components/ui/dialog';
 import { DialogContent } from '@radix-ui/react-dialog';
 import { signIn } from 'next-auth/react';
 import React from 'react';
-import { LoginForm } from './forms/login-form';
-import { RegisterForm } from './forms/register-form';
+
 import { Button } from '@/components/ui/button';
+import { LoginForm } from './auth-bodal/forms/login-form';
+import { RegisterForm } from './auth-bodal/forms/register-form';
 
 
 interface Props {

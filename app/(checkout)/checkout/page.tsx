@@ -41,16 +41,16 @@ export default function CheckoutPage() {
     async function fetchUserInfo() {
       const data = await Api.auth.getMe();
       const [firstName, lastName] = data.fullName.split(' ');
-
+  
       form.setValue('firstName', firstName);
       form.setValue('lastName', lastName);
       form.setValue('email', data.email);
     }
-
+  
     if (session) {
       fetchUserInfo();
     }
-  }, [session]);
+  }, [session])
 
   const onSubmit = async (data: CheckoutFormValues) => {
     try {

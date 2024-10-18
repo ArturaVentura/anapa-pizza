@@ -3,9 +3,12 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { TFormLoginValues, formLoginSchema } from './schemas';
 import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
-import { Title } from '../../title';
-import { FormInput } from '../../form';
-import { Button } from '@/components/ui/button';
+import { Title } from '@/components/shared/title';
+import { FormInput } from '@/components/shared/form';
+import { Button } from '@/components/ui';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+
 
 interface Props {
   onClose?: VoidFunction;

@@ -1,8 +1,8 @@
-import { useSession } from 'next-auth/react';
 import React from 'react';
 import { Button } from '../ui/button';
 import { CircleUser, User } from 'lucide-react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 interface Props {
   onClickSignIn?: () => void;

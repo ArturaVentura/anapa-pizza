@@ -1,6 +1,5 @@
 'use client';
 
-
 import React from 'react';
 import { Button } from '../ui';
 import { ArrowRight, ShoppingCart } from 'lucide-react';
@@ -8,17 +7,15 @@ import { CartDrawer } from './cart-drawer';
 import { useCartStore } from '../store';
 import { cn } from '../lib/utils';
 
-
 interface Props {
   className?: string;
 }
 
 export const CartButton: React.FC<Props> = ({ className }) => {
-  const [totalAmount, items, loading] = useCartStore((state) => [
-    state.totalAmount,
-    state.items,
-    state.loading,
-  ]);
+  // Разделяем вызовы useCartStore для избежания лишних перерендеров
+  const totalAmount = useCartStore((state) => state.totalAmount);
+  const items = useCartStore((state) => state.items);
+  const loading = useCartStore((state) => state.loading);
 
   return (
     <CartDrawer>
