@@ -3,7 +3,7 @@
 import React from 'react';
 import * as SliderPrimitive from '@radix-ui/react-slider';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 type SliderProps = {
   className?: string;
@@ -29,11 +29,9 @@ const RangeSlider = React.forwardRef(
     }, [min, max, value]);
 
     const handleValueChange = (newValues: number[]) => {
-      if (newValues.join(",") !== localValues.join(",")) { // Проверка на изменения
-        setLocalValues(newValues);
-        if (onValueChange) {
-          onValueChange(newValues);
-        }
+      setLocalValues(newValues);
+      if (onValueChange) {
+        onValueChange(newValues);
       }
     };
 

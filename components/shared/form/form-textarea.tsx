@@ -1,8 +1,11 @@
+
 'use client';
 
-import { Textarea } from '@/components/ui';
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
+
 import { ClearButton } from '../clear-button';
+import { Textarea } from '@/components/ui/text-area';
 
 interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string;
@@ -42,7 +45,3 @@ export const FormTextarea: React.FC<Props> = ({ className, name, label, required
     </div>
   );
 };
-
-function useFormContext(): { register: any; formState: { errors: any; }; watch: any; setValue: any; } {
-    throw new Error('Function not implemented.');
-}

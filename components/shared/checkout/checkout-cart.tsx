@@ -1,10 +1,11 @@
 import React from 'react';
 import { WhiteBlock } from '../white-block';
 import { CheckoutItem } from '../checkout-item';
-import { CartStateItem } from '@/lib/get-cart-details';
+
 import { CheckoutItemSkeleton } from '../checkout-item-skeleton';
-import { PizzaSize, PizzaType } from '@/components/constants/pizza';
-import { getCartItemDetails } from '@/lib/get-cart-item-details';
+import { CartStateItem } from '@/components/lib/get-cart-details';
+import { getCartItemDetails } from '@/components/lib';
+import { PizzaSize, PizzaType } from '@/components/constants';
 
 interface Props {
   items: CartStateItem[];

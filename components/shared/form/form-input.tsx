@@ -1,11 +1,10 @@
 'use client';
 
-import { Input } from "@/components/ui";
-import { RequiredSymbol } from "../required-symbol";
-import { ClearButton } from "../clear-button";
-import { ErrorText } from "../error-text";
-
-
+import { useFormContext } from 'react-hook-form';
+import { Input } from '../../ui/input';
+import { ClearButton } from '../clear-button';
+import { ErrorText } from '../error-text';
+import { RequiredSymbol } from '../required-symbol';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -47,7 +46,3 @@ export const FormInput: React.FC<Props> = ({ className, name, label, required, .
     </div>
   );
 };
-
-function useFormContext(): { register: any; formState: { errors: any; }; watch: any; setValue: any; } {
-    throw new Error("Function not implemented.");
-}

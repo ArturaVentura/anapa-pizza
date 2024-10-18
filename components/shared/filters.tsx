@@ -3,9 +3,10 @@
 import React from 'react';
 import { Title } from './title';
 import { Input } from '../ui';
-import { RangeSlider } from '../ui/range-slider';
+
 import { CheckboxFiltersGroup } from './checkbox-filters-group';
-import { useQueryFilters, useIngredients, useFilters } from '@/hooks';
+import { useFilters, useIngredients, useQueryFilters } from '../hooks';
+import { RangeSlider } from './range-slider';
 
 interface Props {
   className?: string;

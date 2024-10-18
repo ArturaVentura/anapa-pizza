@@ -7,11 +7,12 @@ import { PizzaImage } from './pizza-image';
 import { Title } from './title';
 import { Button } from '../ui';
 import { GroupVariants } from './group-variants';
-import { getPizzaDetails } from '@/lib';
-import { usePizzaOptions } from '@/hooks';
-import { cn } from '@/lib/utils';
-import { PizzaSize, PizzaType, pizzaTypes } from '../constants/pizza';
 import { IngredientItem } from './ingredient-item';
+import { usePizzaOptions } from '../hooks';
+import { getPizzaDetails } from '../lib';
+import { cn } from '../lib/utils';
+import { PizzaSize, PizzaType, pizzaTypes } from '../constants';
+
 
 interface Props {
   imageUrl: string;

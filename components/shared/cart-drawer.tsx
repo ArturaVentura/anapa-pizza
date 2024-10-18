@@ -15,12 +15,13 @@ import {
 import Link from 'next/link';
 import { Button } from '../ui';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-
-import { Title } from './title';
-import { cn } from '@/lib/utils';
-import { useCart } from '@/hooks'; 
 import { CartDrawerItem } from './cart-drawer-item';
-import { PizzaSize, PizzaType } from '../constants/pizza';
+import { Title } from './title';
+import { cn } from '../lib/utils';
+import { getCartItemDetails } from '../lib';
+import { PizzaSize, PizzaType } from '../constants';
+import { useCart } from '../hooks';
+
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart();
@@ -30,10 +31,6 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
     const newQuantity = type === 'plus' ? quantity + 1 : quantity - 1;
     updateItemQuantity(id, newQuantity);
   };
-
-    function getCartItemDetails(ingredients: { name: string; price: number; }[], arg1: number, arg2: number): string[] {
-        throw new Error('Function not implemented.');
-    }
 
   return (
     <Sheet>

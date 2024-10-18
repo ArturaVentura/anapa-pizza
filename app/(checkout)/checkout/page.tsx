@@ -1,15 +1,24 @@
 'use client';
 
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
+import {
+  CheckoutSidebar,
+  Container,
+  Title,
+  CheckoutAddressForm,
+  CheckoutCart,
+  CheckoutPersonalForm,
+} from '@/components/shared';
 
 import toast from 'react-hot-toast';
 import React from 'react';
 import { useSession } from 'next-auth/react';
-import { Api } from '@/services/api-client';
-import { useCart } from '@/hooks';
-import { CheckoutCart, CheckoutSidebar, Container, Title } from '@/components/shared';
-import { FormProvider, useForm } from 'react-hook-form';
-import { CheckoutPersonalForm } from '../../../components/shared/checkout/checkout-personal-form';
+import { Api } from '@/components/services/api-client';
+import { createOrder } from '@/app/action';
+import { checkoutFormSchema, CheckoutFormValues } from '@/components/constants';
+import { useCart } from '@/components/hooks';
 
 export default function CheckoutPage() {
   const [submitting, setSubmitting] = React.useState(false);
@@ -100,8 +109,4 @@ export default function CheckoutPage() {
       </FormProvider>
     </Container>
   );
-}
-
-function zodResolver(checkoutFormSchema: any) {
-  throw new Error('Function not implemented.');
 }

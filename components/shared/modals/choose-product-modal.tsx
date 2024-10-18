@@ -1,16 +1,14 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Product } from "@prisma/client";
-import { Dialog } from "@/components/ui";
-import { DialogContent } from "@/components/ui/dialog";
-import { Title } from "../title";
-import { ProductWithRelations } from "@/@types/prisma";
-import { ChooseProductForm } from "../choose-product-form";
-import { ChoosePizzaForm } from "../choose-pizza-form";
-import { ProductForm } from "../product-form";
+
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ProductWithRelations } from '@/@types/prisma';
+
+import toast from 'react-hot-toast';
+import { ProductForm } from '../product-form';
+import { Dialog, DialogContent } from '@radix-ui/react-dialog';
+import { cn } from '@/components/lib/utils';
 
 interface Props {
   product: ProductWithRelations;

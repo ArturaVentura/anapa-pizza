@@ -3,7 +3,7 @@ import { WhiteBlock } from './white-block';
 import { CheckoutItemDetails } from './checkout-item-details';
 import { ArrowRight, Package, Percent, Truck } from 'lucide-react';
 import { Button, Skeleton } from '../ui';
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 const VAT = 15;
 const DELIVERY_PRICE = 250;
